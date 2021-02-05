@@ -1,0 +1,43 @@
+@Test
+    public void testDataTypes() {
+        getGraph().prepareVertex("v1", VISIBILITY_A, CONCEPT_TYPE_THING).save(AUTHORIZATIONS_A_AND_B);
+        getGraph().flush();
+
+        getGraph().getVertex("v1", AUTHORIZATIONS_A_AND_B)
+                .prepareMutation()
+                .addPropertyValue("", "int", intValue(5), VISIBILITY_A)
+                .addPropertyValue("", "intArray", intArray(new int[]{1, 2, 3}), VISIBILITY_A)
+                .addPropertyValue("", "double", doubleValue(5.6d), VISIBILITY_A)
+                .addPropertyValue("", "doubleArray", doubleArray(new double[]{5.6d, 234.344d, 123.777d}), VISIBILITY_A)
+                .addPropertyValue("", "float", floatValue(6.4f), VISIBILITY_A)
+                .addPropertyValue("", "float", floatArray(new float[]{6.4f, 45.66f, 12.66f}), VISIBILITY_A)
+                .addPropertyValue("", "string", stringValue("test"), VISIBILITY_A)
+                .addPropertyValue("", "stringArray", stringArray("str1", "str2", "str3", "str4"), VISIBILITY_A)
+                .addPropertyValue("", "byte", byteValue((byte) 5), VISIBILITY_A)
+                .addPropertyValue("", "byteArray", byteArray("hello world".getBytes()), VISIBILITY_A)
+                .addPropertyValue("", "long", longValue(5L), VISIBILITY_A)
+                .addPropertyValue("", "longArray", longArray(new long[] { 5L, 6L, 7L }), VISIBILITY_A)
+                .addPropertyValue("", "boolean", BooleanValue.TRUE, VISIBILITY_A)
+                .addPropertyValue("", "booleanArray", booleanArray(new boolean[] { true, false, true, true }), VISIBILITY_A)
+                .addPropertyValue("", "geopoint", geoPointValue(77, -33), VISIBILITY_A)
+                .addPropertyValue("", "short", shortValue((short) 5), VISIBILITY_A)
+                .addPropertyValue("", "shortArray", shortArray(new short[] { (short) 1, (short) 2, (short) 3}), VISIBILITY_A)
+                .addPropertyValue("", "datetime", DateTimeValue.datetime(ZonedDateTime.now()), VISIBILITY_A)
+                .addPropertyValue("", "dateTimeArray", Values.dateTimeArray(new ZonedDateTime[]{ ZonedDateTime.now(), ZonedDateTime.now().plusMinutes(1), ZonedDateTime.now().plusMinutes(2) }), VISIBILITY_A)
+                .addPropertyValue("", "date", DateValue.date(LocalDate.now()), VISIBILITY_A)
+                .addPropertyValue("", "dateArray", Values.dateArray(new LocalDate[]{ LocalDate.now(), LocalDate.now().plusDays(1), LocalDate.now().plusDays(2) }), VISIBILITY_A)
+                .addPropertyValue("", "time", TimeValue.now(Clock.systemUTC()), VISIBILITY_A)
+                .addPropertyValue("", "timeArray", Values.timeArray(new OffsetTime[]{ OffsetTime.now(), OffsetTime.now().plusMinutes(1), OffsetTime.now().plusMinutes(2) }), VISIBILITY_A)
+                .addPropertyValue("", "localDateTime", LocalDateTimeValue.now(Clock.systemUTC()), VISIBILITY_A)
+                .addPropertyValue("", "localDateTimeArray", Values.localDateTimeArray(new LocalDateTime[]{ LocalDateTime.now(), LocalDateTime.now().plusMinutes(1), LocalDateTime.now().plusMinutes(2) }), VISIBILITY_A)
+                .addPropertyValue("", "localTime", LocalTimeValue.now(Clock.systemUTC()), VISIBILITY_A)
+                .addPropertyValue("", "localTimeArray", Values.localTimeArray(new LocalTime[]{ LocalTime.now(), LocalTime.now().plusMinutes(1), LocalTime.now().plusMinutes(2) }), VISIBILITY_A)
+                .addPropertyValue("", "duration", DurationValue.duration(Duration.ofHours(1)), VISIBILITY_A)
+                .addPropertyValue("", "durationArray", Values.durationArray(new DurationValue[] { DurationValue.duration(Duration.ofHours(1)), DurationValue.duration(Duration.ofDays(1)), DurationValue.duration(Period.ofDays(1)) }), VISIBILITY_A)
+
+                .save(AUTHORIZATIONS_A_AND_B);
+
+        getGraph().flush();
+    }
+
+    

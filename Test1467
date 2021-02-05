@@ -1,0 +1,34 @@
+@Test
+    public void testReturningAlterConceptAndEdgeType() {
+        Vertex v1 = getGraph().prepareVertex("v1", VISIBILITY_A, CONCEPT_TYPE_THING)
+                .setProperty("prop1", intValue(1), VISIBILITY_A)
+                .save(AUTHORIZATIONS_A_AND_B);
+        Vertex v2 = getGraph().prepareVertex("v2", VISIBILITY_A, CONCEPT_TYPE_THING)
+                .setProperty("prop2", intValue(1), VISIBILITY_A)
+                .save(AUTHORIZATIONS_A_AND_B);
+        Edge e1 = getGraph().prepareEdge(v1, v2, "label1", VISIBILITY_A)
+                .setProperty("p1", intValue(1), VISIBILITY_A)
+                .save(AUTHORIZATIONS_A_AND_B);
+        getGraph().flush();
+        assertEquals(CONCEPT_TYPE_THING, v1.getConceptType());
+
+        e1 = e1.prepareMutation()
+                .alterEdgeLabel("label2")
+                .setProperty("p1", intValue(2), VISIBILITY_A)
+                .save(AUTHORIZATIONS_A_AND_B);
+        getGraph().flush();
+        assertEquals(intValue(2), e1.getProperty("p1").getValue());
+        assertEquals("label2", e1.getLabel());
+
+        v1 = v1.prepareMutation()
+                .alterConceptType(CONCEPT_TYPE_PERSON)
+                .save(AUTHORIZATIONS_A_AND_B);
+        getGraph().flush();
+
+        assertEquals(CONCEPT_TYPE_PERSON, v1.getConceptType());
+
+        v1 = getGraph().getVertex("v1", AUTHORIZATIONS_A_AND_B);
+        assertEquals(CONCEPT_TYPE_PERSON, v1.getConceptType());
+    }
+
+    
