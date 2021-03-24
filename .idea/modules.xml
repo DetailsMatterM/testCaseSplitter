@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/txtSplitter.iml" filepath="$PROJECT_DIR$/txtSplitter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testCaseSplitter.iml" filepath="$PROJECT_DIR$/testCaseSplitter.iml" />
     </modules>
   </component>
 </project>
