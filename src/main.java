@@ -47,9 +47,10 @@ public class main {
                 // removes the file ending ".java" from the filename that will be printed
                 String filenameToPrint = filename.substring(0, filename.length() - 5);
 
-                // String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
+                // FOR WINDOWS String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
                 String pathToSave = args[1] + "/" + filenameToPrint;
 
+                // FOR WINDOWS US \\
                 String data = readFileAsString(path + "/" + filename);
 
                 FileSplitter.splitOnVoid(data,pathToSave);

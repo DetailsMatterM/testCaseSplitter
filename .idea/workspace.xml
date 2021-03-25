@@ -25,11 +25,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a88018e4-7cff-47b8-b403-68b9ca138460" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/testCaseSplitter_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileSplitter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +115,7 @@
       <workItem from="1616676646059" duration="3084000" />
       <workItem from="1616681159844" duration="58000" />
       <workItem from="1616681472908" duration="432000" />
-      <workItem from="1616684293378" duration="865000" />
+      <workItem from="1616684293378" duration="1267000" />
     </task>
     <servers />
   </component>
