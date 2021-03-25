@@ -107,9 +107,9 @@ public class FileSplitter {
                         foundTest = true;
                         boolean foundName = false;
                         for (int x = 1; x < input.length() && !foundName; x++) {
-                            if (input.charAt(i + x) == ')') {
+                            if (input.charAt(i + x) == '(') {
                                 foundName = true;
-                                testName = input.substring(i + 5, i + (x + 1));
+                                testName = input.substring(i + 5, i + x);
                                 System.out.println(testName);
                             }
 
