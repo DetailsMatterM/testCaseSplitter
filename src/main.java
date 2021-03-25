@@ -1,3 +1,5 @@
+import com.sun.source.tree.BindingPatternTree;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -19,13 +21,19 @@ public class main {
     {
         // enter file path as E:\\Bachelor\\githubTest\\githubtests.txt")
         String path = "D:\\Dropbox\\shared2\\ChartTestSuite\\tests\\org\\jfree\\chart\\annotations\\junit\\CategoryTextAnnotationTests.java";
-        String pathToSave = "D:\\Dropbox\\shared2\\TestCases\\Chart";
+        String pathToSave = "E:\\Bachelor\\splitterTests\\Chart";
         String data = readFileAsString(path);
-        splitOnString(data, pathToSave, "void");
-
+        //splitOnString(data, pathToSave, "void");
+        splitOnVoid(data,pathToSave);
     }
 
-
+    /**
+     * Splits input String based on delimiter
+     * PROBLEM: it creates a string without linebreaks, which is not the same as a test case with linebreaks
+     * @param input
+     * @param pathToSave
+     * @param delimiter
+     */
     public static void splitOnString(String input, String pathToSave, String delimiter) {
         // Split the inputstring based on spaces " "
         String [] splitInput = input.split("\\s+");
@@ -35,21 +43,6 @@ public class main {
         int testEndIndex = 0;
         String testName = "";
 
-        /*
-        1.  Check if splitInput[i] is void
-
-                if yes:
-                    if foundTest == false
-                        testStartIndex = index - 1
-                        testName = splitInput[index + 1]
-                        set foundTest = true
-                    else
-                        go back in the string array to find the index of last }
-                        testEndIndex = index of last }
-                        save substring between testStartIndex and testEndIndex in a file, use testName
-
-
-         */
         for (int i = 0; i < splitInput.length; i++) {
             if (splitInput[i].equals(delimiter) || i == splitInput.length - 1) {
                 if (!foundTest) {
@@ -115,4 +108,67 @@ public class main {
         }
     }
 
+    /**
+     * Splits an input string based on the keyword "void" into files with single test cases
+     * @param input
+     * @param pathToSave
+     */
+    public static void splitOnVoid(String input, String pathToSave) {
+        int testStartIndex = 0;
+        int testEndIndex = 0;
+        // char delimiter = '@'; // example from test file
+        int fileIndexName = 0;
+        boolean foundTest = false;
+        String testName = "";
+        for (int i = 0; i < input.length(); i++) {
+            try {
+                if (i == input.length() - 4 || input.substring(i, i + 4).equals("void")) {
+                    if (!foundTest) {
+                        testStartIndex = i - 7;
+                        foundTest = true;
+                        boolean foundName = false;
+                        for (int x = 1; x < input.length() && !foundName; x++) {
+                            if (input.charAt(i + x) == ')') {
+                                foundName = true;
+                                testName = input.substring(i + 5, i + (x + 1));
+                                System.out.println(testName);
+                            }
+
+                        }
+                    } else {
+                        boolean foundEnd = false;
+                        for (int y = 1; y < i && !foundEnd; y++) {
+                            if (input.charAt(i - y) == '}') {
+                                testEndIndex = i - y;
+                                foundEnd = true;
+                                foundTest = false;
+                            }
+                        }
+                        try {
+                            String substring = input.substring(testStartIndex,testEndIndex + 1);
+                            printCharacters(pathToSave, testName, substring);
+                            fileIndexName++;
+                            if (i != input.length() - 1) {
+                                i--;
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (StringIndexOutOfBoundsException e) {
+                if (i == input.length() - 1) {
+                    System.out.println("Reached end of file");
+                }
+            }
+        }
+    }
+
+    public static void printCharacters(String pathToSave, String testName, String substring) throws IOException {
+        PrintWriter writer = new PrintWriter(pathToSave + testName + fileEnding, StandardCharsets.UTF_8);
+        writer.print(substring);
+        writer.close();
+    }
+
 }
+
