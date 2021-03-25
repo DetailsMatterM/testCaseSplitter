@@ -24,18 +24,8 @@ public class main {
     {
         // enter file path like E:\\Bachelor\\githubTest\\githubtests.txt")
         // here I will need the path to the parent folder
-        String path = "D:\\Dropbox\\shared2\\ChartTestSuite\\tests\\org\\jfree\\chart\\block\\junit";
+        String path = "D:\\Dropbox\\shared2\\TestCases\\Chart\\onlyTests";
 
-
-        // has
-        String filename = "BlockBorderTests.java";
-
-        // removes the file ending ".java" from the filename that will be printed
-        String filenameToPrint = filename.substring(0, filename.length() - 5);
-        String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
-        String data = readFileAsString(path + "\\" + filename);
-
-        //FileSplitter.splitOnVoid(data,pathToSave);
 
         try {
             File f =new File(path);
@@ -50,11 +40,28 @@ public class main {
             File[] files = f.listFiles(filter);
 
             for (int i = 0; i < files.length; i++) {
-                System.out.println(files[i].getName());
+
+                // has to be taken from file-list
+                String filename = files[i].getName();
+
+                // removes the file ending ".java" from the filename that will be printed
+                String filenameToPrint = filename.substring(0, filename.length() - 5);
+
+                String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
+
+
+                String data = readFileAsString(path + "\\" + filename);
+
+                FileSplitter.splitOnVoid(data,pathToSave);
             }
         } catch (Exception e) {
             System.out.println(Arrays.toString(e.getStackTrace()));
         }
+
+
+
+
+
     }
 
 
