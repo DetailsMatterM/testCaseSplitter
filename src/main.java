@@ -23,7 +23,10 @@ public class main {
 
         String path = "D:\\Dropbox\\shared2\\ChartTestSuite\\tests\\org\\jfree\\chart\\block\\junit";
         String filename = "BlockBorderTests.java";
-        String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filename;
+
+        // removes the file ending ".java" from the filename that will be printed
+        String filenameToPrint = filename.substring(0, filename.length() - 5);
+        String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
         String data = readFileAsString(path + "\\" + filename);
         //splitOnString(data, pathToSave, "void");
         splitOnVoid(data,pathToSave);
