@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a88018e4-7cff-47b8-b403-68b9ca138460" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FileSplitter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test1467" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test3022" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test6881" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,19 +58,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.main" />
@@ -97,7 +78,10 @@
       <workItem from="1616589450469" duration="3908000" />
       <workItem from="1616593596216" duration="2292000" />
       <workItem from="1616654852651" duration="7704000" />
-      <workItem from="1616662603537" duration="1496000" />
+      <workItem from="1616662603537" duration="2938000" />
+      <workItem from="1616676354010" duration="24000" />
+      <workItem from="1616676484677" duration="35000" />
+      <workItem from="1616676646059" duration="319000" />
     </task>
     <servers />
   </component>
@@ -121,22 +105,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="736" y="356" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616510589342" />
-    <state width="1236" height="391" key="GridCell.Tab.0.bottom" timestamp="1616664058209">
+    <state x="1600" y="436" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1616676365333">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="391" key="GridCell.Tab.0.bottom/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664058209" />
-    <state width="1236" height="391" key="GridCell.Tab.0.center" timestamp="1616664058209">
+    <state x="1600" y="436" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616676365333" />
+    <state width="2517" height="393" key="GridCell.Tab.0.bottom" timestamp="1616664123856">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="391" key="GridCell.Tab.0.center/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664058209" />
-    <state width="1236" height="391" key="GridCell.Tab.0.left" timestamp="1616664058209">
+    <state width="2517" height="393" key="GridCell.Tab.0.bottom/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664123856" />
+    <state width="2517" height="393" key="GridCell.Tab.0.center" timestamp="1616664123856">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="391" key="GridCell.Tab.0.left/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664058209" />
-    <state width="1236" height="391" key="GridCell.Tab.0.right" timestamp="1616664058209">
+    <state width="2517" height="393" key="GridCell.Tab.0.center/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664123856" />
+    <state width="2517" height="393" key="GridCell.Tab.0.left" timestamp="1616664123856">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="391" key="GridCell.Tab.0.right/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664058209" />
+    <state width="2517" height="393" key="GridCell.Tab.0.left/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664123856" />
+    <state width="2517" height="393" key="GridCell.Tab.0.right" timestamp="1616664123856">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="393" key="GridCell.Tab.0.right/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616664123856" />
     <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1616662569465">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -153,24 +141,5 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400/1028.-1080.1920.999@0.0.2560.1400" timestamp="1616662569465" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main.java</url>
-          <line>35</line>
-          <properties class="main">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
