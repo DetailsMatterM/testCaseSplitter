@@ -110,7 +110,7 @@ public class FileSplitter {
                             if (input.charAt(i + x) == '(') {
                                 foundName = true;
                                 testName = input.substring(i + 5, i + x);
-                                System.out.println(testName);
+
                             }
 
                         }
@@ -124,11 +124,14 @@ public class FileSplitter {
                             }
                         }
                         try {
-                            String substring = input.substring(testStartIndex,testEndIndex + 1);
-                            printCharactersToFile(pathToSave, testName, substring);
-                            fileIndexName++;
-                            if (i != input.length() - 1) {
-                                i--;
+                            if (testName.substring(0, 4).equals("test")) {
+                                System.out.println(testName);
+                                String substring = input.substring(testStartIndex,testEndIndex + 1);
+                                printCharactersToFile(pathToSave, testName, substring);
+                                fileIndexName++;
+                                if (i != input.length() - 1) {
+                                    i--;
+                                }
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
