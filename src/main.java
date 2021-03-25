@@ -50,9 +50,8 @@ public class main {
 
 
          */
-        // TODO: fix problem: currently algorithm can't find more than 2 tests, but it can find all test names. I assume some problem in the structure
         for (int i = 0; i < splitInput.length; i++) {
-            if (splitInput[i].equals(delimiter)) {
+            if (splitInput[i].equals(delimiter) || i == splitInput.length - 1) {
                 if (!foundTest) {
                     foundTest = true;
                     testStartIndex = i - 1;
@@ -77,7 +76,10 @@ public class main {
 
                         writer.print(outputString.toString());
                         writer.close();
-                        i--;
+                        if(i != splitInput.length - 1) {
+                            i--;
+                        }
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
