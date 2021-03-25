@@ -20,9 +20,11 @@ public class main {
     public static void main(String[] args) throws Exception
     {
         // enter file path as E:\\Bachelor\\githubTest\\githubtests.txt")
-        String path = "D:\\Dropbox\\shared2\\ChartTestSuite\\tests\\org\\jfree\\chart\\annotations\\junit\\CategoryTextAnnotationTests.java";
-        String pathToSave = "E:\\Bachelor\\splitterTests\\Chart";
-        String data = readFileAsString(path);
+
+        String path = "D:\\Dropbox\\shared2\\ChartTestSuite\\tests\\org\\jfree\\chart\\block\\junit";
+        String filename = "BlockBorderTests.java";
+        String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filename;
+        String data = readFileAsString(path + "\\" + filename);
         //splitOnString(data, pathToSave, "void");
         splitOnVoid(data,pathToSave);
     }
