@@ -77,11 +77,11 @@ public class main {
 
                         writer.print(outputString.toString());
                         writer.close();
+                        i--;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("Done at index " +  i);
             }
 
         }
