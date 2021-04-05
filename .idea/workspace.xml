@@ -26,8 +26,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a88018e4-7cff-47b8-b403-68b9ca138460" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/FileSplitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/FileSplitter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileSplitter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +79,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="testCaseSplitter1" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" />
       <option name="WORKING_DIRECTORY" value="E:\Bachelor\testCaseSplitter" />
@@ -118,7 +132,13 @@
       <workItem from="1616676646059" duration="3084000" />
       <workItem from="1616681159844" duration="58000" />
       <workItem from="1616681472908" duration="432000" />
-      <workItem from="1616684293378" duration="2593000" />
+      <workItem from="1616684293378" duration="4678000" />
+      <workItem from="1616749489786" duration="2180000" />
+      <workItem from="1616841195962" duration="444000" />
+      <workItem from="1617016667897" duration="2199000" />
+      <workItem from="1617282784711" duration="785000" />
+      <workItem from="1617611218699" duration="4186000" />
+      <workItem from="1617638052443" duration="1559000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 
 public class FileSplitter {
     static final String fileEnding = ".txt";
@@ -95,12 +96,13 @@ public class FileSplitter {
     public static void splitOnVoid(String input, String pathToSave) {
         int testStartIndex = 0;
         int testEndIndex = 0;
-        // char delimiter = '@'; // example from test file
+
         int fileIndexName = 0;
         boolean foundTest = false;
         String testName = "";
         for (int i = 0; i < input.length(); i++) {
             try {
+                // void is used as a delimiter between tests
                 if (i == input.length() - 4 || input.substring(i, i + 4).equals("void")) {
                     if (!foundTest) {
                         testStartIndex = i - 7;
@@ -124,11 +126,11 @@ public class FileSplitter {
                             }
                         }
                         try {
-                            if (testName.substring(0, 4).equals("test")) {
+                            if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
                                 System.out.println(testName);
                                 String substring = input.substring(testStartIndex,testEndIndex + 1);
-                                printCharactersToFile(pathToSave, testName, substring);
-                                fileIndexName++;
+                                System.out.println(pathToSave);
+                                printCharactersToFile(pathToSave, "::" + testName, substring);
                                 if (i != input.length() - 1) {
                                     i--;
                                 }
