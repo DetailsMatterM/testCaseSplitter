@@ -100,10 +100,11 @@ public class FileSplitter {
         int fileIndexName = 0;
         boolean foundTest = false;
         String testName = "";
+
         for (int i = 0; i < input.length(); i++) {
             try {
                 // void is used as a delimiter between tests
-                if (i == input.length() - 4 || input.substring(i, i + 4).equals("void")) {
+                if (input.substring(i, i + 4).equals("void") && i != input.length() - 4) {
                     if (!foundTest) {
                         testStartIndex = i - 7;
                         foundTest = true;
@@ -114,7 +115,6 @@ public class FileSplitter {
                                 testName = input.substring(i + 5, i + x);
 
                             }
-
                         }
                     } else {
                         boolean foundEnd = false;
@@ -125,32 +125,41 @@ public class FileSplitter {
                                 foundTest = false;
                             }
                         }
-                        try {
-                            if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
-                                System.out.println(testName);
-                                String substring = input.substring(testStartIndex,testEndIndex + 1);
-                                System.out.println(pathToSave);
-                                printCharactersToFile(pathToSave, "::" + testName, substring);
-                                if (i != input.length() - 1) {
-                                    i--;
-                                }
+                        PrintWriter writer = null;
+
+                        if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
+                            String substring = input.substring(testStartIndex,testEndIndex + 1);
+                            printCharactersToFile(pathToSave, testName, substring);
+                            if (i != input.length() - 1) {
+                                i--;
                             }
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        }
+                    }
+                } else if (i == input.length() - 4) {
+                    for ( int x = 1; x <= input.length(); x++) {
+                        if (input.charAt(i + x) == '}') {
+                            testEndIndex = i + x;
                         }
                     }
                 }
             } catch (StringIndexOutOfBoundsException e) {
+                //System.out.println(pathToSave + "::" + testName);
                 if (i == input.length() - 1) {
-                    System.out.println("Reached end of file");
+                    //System.out.println("Reached end of file");
                 }
             }
         }
     }
 
-    public static void printCharactersToFile(String pathToSave, String testName, String substring) throws IOException {
-        PrintWriter writer = new PrintWriter(pathToSave + testName + fileEnding, StandardCharsets.UTF_8);
-        writer.print(substring);
-        writer.close();
+    public static void printCharactersToFile(String pathToSave, String testName, String substring) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(pathToSave + testName + fileEnding, StandardCharsets.UTF_8);
+            writer.print(substring);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }
