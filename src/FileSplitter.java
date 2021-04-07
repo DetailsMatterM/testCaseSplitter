@@ -127,13 +127,14 @@ public class FileSplitter {
                         }
                         try {
                             if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
-                                System.out.println(testName);
                                 String substring = input.substring(testStartIndex,testEndIndex + 1);
-                                System.out.println(pathToSave);
                                 printCharactersToFile(pathToSave, "::" + testName, substring);
                                 if (i != input.length() - 1) {
                                     i--;
                                 }
+                            } else {
+
+                                System.out.println(pathToSave + "::" + testName);
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -141,9 +142,10 @@ public class FileSplitter {
                     }
                 }
             } catch (StringIndexOutOfBoundsException e) {
-                if (i == input.length() - 1) {
+                // This exception is expected to appear when the end of the file is reached
+                /*if (i == input.length() - 1) {
                     System.out.println("Reached end of file");
-                }
+                }*/
             }
         }
     }

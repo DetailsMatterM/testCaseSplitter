@@ -24,8 +24,8 @@ public class main {
     {
         // enter file path like E:\\Bachelor\\githubTest\\githubtests.txt")
         // here I will need the path to the parent folder
-        // String path = "D:\\Dropbox\\shared2\\TestCases\\Chart\\onlyTests";
-        String path = args[0];
+        String path = "E:\\Bachelor\\splitterTests\\t\\testV14";
+        //String path = args[0];
 
         try {
             File f =new File(path);
@@ -47,11 +47,13 @@ public class main {
                 // removes the file ending ".java" from the filename that will be printed
                 String filenameToPrint = filename.substring(0, filename.length() - 5);
 
-                // FOR WINDOWS String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
-                String pathToSave = args[1] + "/" + filenameToPrint;
+                //  D:\Dropbox\shared2\TestSuiteForTestCaseSplitter\testV14\output
+                String pathToSave = "E:\\Bachelor\\splitterTests\\t\\output" + "\\" + filenameToPrint;
+                //String pathToSave = args[1] + "/" + filenameToPrint;
 
                 // FOR WINDOWS US \\
-                String data = readFileAsString(path + "/" + filename);
+                //String data = readFileAsString(path + "/" + filename);
+                String data = readFileAsString(path + "\\" + filename);
 
                 FileSplitter.splitOnVoid(data,pathToSave);
             }
