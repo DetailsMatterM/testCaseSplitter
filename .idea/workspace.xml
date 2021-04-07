@@ -29,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/FileSplitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/FileSplitter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileSplitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="testCaseSplitter" />
-      <option name="PROGRAM_PARAMETERS" value="E:\Bachelor\splitterTests\t\problemlength E:\Bachelor\splitterTests\t\outputProblemlength" />
+      <option name="PROGRAM_PARAMETERS" value="E:\Bachelor\splitterTests\t\testV14 E:\Bachelor\splitterTests\t\output" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,18 +160,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/FileSplitter.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/FileSplitter.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/FileSplitter.java</url>
-          <line>124</line>
-          <option name="timeStamp" value="17" />
+          <line>113</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

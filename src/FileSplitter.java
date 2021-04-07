@@ -100,11 +100,17 @@ public class FileSplitter {
         int fileIndexName = 0;
         boolean foundTest = false;
         String testName = "";
-
+        String overRComp = "Override";
+        int caseCounter = 0;
         for (int i = 0; i < input.length(); i++) {
             try {
                 // void is used as a delimiter between tests
-                if (i <= input.length() - 4 && input.substring(i, i + 4).equals("void") && input.substring(i - 7, i).equals("public ")) {
+
+                if (i <= input.length() - 4 &&
+                        input.substring(i, i + 4).equals("void") &&
+                        input.substring(i - 7, i).equals("public ") &&
+                        !input.substring(i - 28, i - 20).equals(overRComp)) {
+                    String a = input.substring(i - 28, i - 20);
                     if (!foundTest) {
                         testStartIndex = i - 7;
                         foundTest = true;
@@ -113,7 +119,6 @@ public class FileSplitter {
                             if (input.charAt(i + x) == '(') {
                                 foundName = true;
                                 testName = input.substring(i + 5, i + x);
-                                System.out.println(testName);
                             }
                         }
                     } else {
@@ -134,15 +139,28 @@ public class FileSplitter {
                             i--;
                         }
                     }
-                } else if (i == input.length() - 4) {
+                } else if (i == input.length() - 1) {
                     boolean foundEnd = false;
-                    for ( int x = 1; !foundEnd && x <= input.length(); x++) {
-                        if (input.charAt(i + x) == '}') {
-                            testEndIndex = i + x;
+                    boolean foundClass = false;
+
+
+                    for ( int x = 1; !foundEnd && i - x != testStartIndex; x++) {
+                        Character compare = input.charAt(i - x);
+                        Character comparator = '}';
+
+                        if (compare.equals(comparator) && !foundClass) {
+                            foundClass = true;
+                            continue;
+                        }
+                        if (foundClass && compare.equals(comparator)) {
                             foundEnd = true;
+                            testEndIndex = (i - x);
                         }
                     }
-                    prepareForPrint(testName, input, testStartIndex,testEndIndex, pathToSave);
+                    if (foundEnd) {
+                        prepareForPrint(testName, input, testStartIndex,testEndIndex, pathToSave);
+                    }
+
                 }
             } catch (StringIndexOutOfBoundsException e) {
                 e.printStackTrace();
@@ -164,11 +182,11 @@ public class FileSplitter {
     }
 
     public static void prepareForPrint(String testName, String input, int testStartIndex, int testEndIndex, String pathToSave) {
-        if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
+        if (testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) {
             String substring = input.substring(testStartIndex,testEndIndex + 1);
-            //printCharactersToFile(pathToSave, "::" + testName, substring);
+            printCharactersToFile(pathToSave, "::" + testName, substring);
             // FOR WINDOWS
-            printCharactersToFile(pathToSave, testName, substring);
+            // printCharactersToFile(pathToSave, testName, substring);
         }
     }
 }

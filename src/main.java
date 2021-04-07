@@ -48,10 +48,10 @@ public class main {
                 String filenameToPrint = filename.substring(0, filename.length() - 5);
 
                 // FOR WINDOWS String pathToSave = "E:\\Bachelor\\splitterTests\\Chart" + "\\" + filenameToPrint;
-                String pathToSave = args[1] + "\\" + filenameToPrint;
+                String pathToSave = args[1] + "/" + filenameToPrint;
 
                 // FOR WINDOWS US \\
-                String data = readFileAsString(path + "\\" + filename);
+                String data = readFileAsString(path + "/" + filename);
 
                 FileSplitter.splitOnVoid(data,pathToSave);
             }
