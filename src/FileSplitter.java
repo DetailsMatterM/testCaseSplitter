@@ -104,7 +104,7 @@ public class FileSplitter {
         for (int i = 0; i < input.length(); i++) {
             try {
                 // void is used as a delimiter between tests
-                if (input.substring(i, i + 4).equals("void") && i != input.length() - 4) {
+                if (i <= input.length() - 4 && input.substring(i, i + 4).equals("void") && input.substring(i - 7, i).equals("public ")) {
                     if (!foundTest) {
                         testStartIndex = i - 7;
                         foundTest = true;
@@ -113,40 +113,41 @@ public class FileSplitter {
                             if (input.charAt(i + x) == '(') {
                                 foundName = true;
                                 testName = input.substring(i + 5, i + x);
-
+                                System.out.println(testName);
                             }
                         }
                     } else {
                         boolean foundEnd = false;
                         for (int y = 1; y < i && !foundEnd; y++) {
-                            if (input.charAt(i - y) == '}') {
+                            Character compare = input.charAt(i - y);
+                            Character comparator = '}';
+                            if (compare.equals(comparator)) {
                                 testEndIndex = i - y;
                                 foundEnd = true;
                                 foundTest = false;
                             }
                         }
-                        PrintWriter writer = null;
 
-                        if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
-                            String substring = input.substring(testStartIndex,testEndIndex + 1);
-                            printCharactersToFile(pathToSave, testName, substring);
-                            if (i != input.length() - 1) {
-                                i--;
-                            }
+
+                        prepareForPrint(testName, input, testStartIndex,testEndIndex, pathToSave);
+                        if (i != input.length() - 1) {
+                            i--;
                         }
                     }
                 } else if (i == input.length() - 4) {
-                    for ( int x = 1; x <= input.length(); x++) {
+                    boolean foundEnd = false;
+                    for ( int x = 1; !foundEnd && x <= input.length(); x++) {
                         if (input.charAt(i + x) == '}') {
                             testEndIndex = i + x;
+                            foundEnd = true;
                         }
                     }
+                    prepareForPrint(testName, input, testStartIndex,testEndIndex, pathToSave);
                 }
             } catch (StringIndexOutOfBoundsException e) {
-                //System.out.println(pathToSave + "::" + testName);
-                if (i == input.length() - 1) {
-                    //System.out.println("Reached end of file");
-                }
+                e.printStackTrace();
+                System.out.println(pathToSave + "_" + testName);
+
             }
         }
     }
@@ -162,4 +163,12 @@ public class FileSplitter {
         }
     }
 
+    public static void prepareForPrint(String testName, String input, int testStartIndex, int testEndIndex, String pathToSave) {
+        if (testName.substring(0, 4).equalsIgnoreCase("test") && testName.length() > 4) {
+            String substring = input.substring(testStartIndex,testEndIndex + 1);
+            //printCharactersToFile(pathToSave, "::" + testName, substring);
+            // FOR WINDOWS
+            printCharactersToFile(pathToSave, testName, substring);
+        }
+    }
 }
