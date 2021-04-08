@@ -87,6 +87,63 @@ public class FileSplitter {
         }
     }
 
+    public static void splitOnBrac(String input, String pathToSave) {
+        String overRComp = "Override";
+        Character openBComp = '{';
+        Character closedBComp = '}';
+        Character quotationComp = '"';
+        Character semicolonComp = ';';
+        int testStartIndex = 0;
+        int testEndIndex = 0;
+        String testName = "";
+        for (int i = 0; i < input.length(); i++) {
+            try {
+                if (i <= input.length() - 4 &&
+                        input.substring(i, i + 4).equals("void") &&
+                        input.substring(i - 7, i).equals("public ") &&
+                        !input.substring(i - 28, i - 20).equals(overRComp)) {
+                    int openB = 0;
+                    int closedB = 0;
+                    int quotationCounter = 0;
+                    testStartIndex = i - 7;
+                    boolean testFound = false;
+                    boolean foundName = false;
+
+                    for (int x = 1; x < input.length() && !foundName; x++) {
+                        if (input.charAt(i + x) == '(') {
+                            foundName = true;
+                            testName = input.substring(i + 5, i + x);
+                        }
+                    }
+                    for (int j = 1; j < input.length() && !testFound; j++) {
+                        Character compare = input.charAt(i + j);
+
+                        if (compare.equals(quotationComp)) {
+                            quotationCounter++;
+
+                        } else if (quotationCounter % 2 == 0 || (quotationCounter % 2 != 0 && compare.equals(semicolonComp))) {
+                            if (compare.equals(openBComp)) {
+                                openB++;
+                            } else if (compare.equals(closedBComp)) {
+                                closedB++;
+                            }
+                            if (openB >= 1 && openB == closedB) {
+                                testFound = true;
+                                testEndIndex = i + j;
+                            }
+                        }
+                    }
+                    i = testEndIndex;
+                    prepareForPrint(testName, input, testStartIndex,testEndIndex, pathToSave);
+                }
+            } catch (StringIndexOutOfBoundsException e) {
+                e.printStackTrace();
+                System.out.println(pathToSave + "_" + testName);
+
+            }
+        }
+    }
+
     /**
      * Splits an input string based on the keyword "void" into files with single test cases
      * Analysis the input string character by character. This preserves the file structure with linebreaks
@@ -184,9 +241,9 @@ public class FileSplitter {
     public static void prepareForPrint(String testName, String input, int testStartIndex, int testEndIndex, String pathToSave) {
         if (testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) {
             String substring = input.substring(testStartIndex,testEndIndex + 1);
-            printCharactersToFile(pathToSave, "::" + testName, substring);
+            //printCharactersToFile(pathToSave, "::" + testName, substring);
             // FOR WINDOWS
-            // printCharactersToFile(pathToSave, testName, substring);
+            printCharactersToFile(pathToSave, testName, substring);
         }
     }
 }

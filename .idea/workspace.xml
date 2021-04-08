@@ -74,18 +74,20 @@
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="testCaseSplitter" />
-      <option name="PROGRAM_PARAMETERS" value="E:\Bachelor\splitterTests\t\testV14 E:\Bachelor\splitterTests\t\output" />
+      <option name="PROGRAM_PARAMETERS" value="E:\Bachelor\splitterTests\t\V18\quote E:\Bachelor\splitterTests\t\V18\quoteOutput" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,6 +139,7 @@
       <workItem from="1617282784711" duration="785000" />
       <workItem from="1617611218699" duration="4186000" />
       <workItem from="1617638052443" duration="1559000" />
+      <workItem from="1617861726241" duration="9378000" />
     </task>
     <servers />
   </component>
@@ -160,8 +163,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/FileSplitter.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="39" />
+          <line>169</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="testName.equals(&quot;testUnwrapping&quot;)" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/FileSplitter.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
