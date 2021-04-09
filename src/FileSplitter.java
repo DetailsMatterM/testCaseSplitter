@@ -116,21 +116,32 @@ public class FileSplitter {
                         }
                     }
                     for (int j = 1; j < input.length() && !testFound; j++) {
-                        Character compare = input.charAt(i + j);
+                        int currentIndex = i + j;
+                        Character compare = input.charAt(currentIndex);
+
 
                         if (compare.equals(quotationComp)) {
-                            quotationCounter++;
-
-                        } else if (quotationCounter % 2 == 0 || (quotationCounter % 2 != 0 && compare.equals(semicolonComp))) {
-                            if (compare.equals(openBComp)) {
-                                openB++;
-                            } else if (compare.equals(closedBComp)) {
-                                closedB++;
+                            boolean foundStringEnd = false;
+                            for (int y = 1; currentIndex + y < input.length() && !foundStringEnd; y++ ) {
+                                Character compareAfterQuote = input.charAt(currentIndex + y);
+                                Character comparePlus = input.charAt(currentIndex + y + 1);
+                                if (compareAfterQuote.equals(quotationComp)) {
+                                    j = j + y;
+                                    foundStringEnd = true;
+                                } else if (compareAfterQuote.equals(';') && comparePlus.equals('\n')) {
+                                    j = j + y;
+                                    foundStringEnd = true;
+                                }
                             }
-                            if (openB >= 1 && openB == closedB) {
-                                testFound = true;
-                                testEndIndex = i + j;
-                            }
+                        }
+                        if (compare.equals(openBComp)) {
+                            openB++;
+                        } else if (compare.equals(closedBComp)) {
+                            closedB++;
+                        }
+                        if (openB >= 1 && openB == closedB) {
+                            testFound = true;
+                            testEndIndex = i + j;
                         }
                     }
                     i = testEndIndex;
@@ -239,11 +250,12 @@ public class FileSplitter {
     }
 
     public static void prepareForPrint(String testName, String input, int testStartIndex, int testEndIndex, String pathToSave) {
-        if (testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) {
-            String substring = input.substring(testStartIndex,testEndIndex + 1);
-            //printCharactersToFile(pathToSave, "::" + testName, substring);
+        String substring = input.substring(testStartIndex,testEndIndex + 1);
+        if ((testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) || substring.contains("assert") || ) {
+
+            printCharactersToFile(pathToSave, "::" + testName, substring);
             // FOR WINDOWS
-            printCharactersToFile(pathToSave, testName, substring);
+            //printCharactersToFile(pathToSave, testName, substring);
         }
     }
 }
