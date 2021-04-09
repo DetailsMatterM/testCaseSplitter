@@ -28,9 +28,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/testCaseSplitter_jar/testCaseSplitter.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/FileSplitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/FileSplitter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/testCaseSplitter/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileSplitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +138,7 @@
       <workItem from="1617638052443" duration="1559000" />
       <workItem from="1617861726241" duration="13353000" />
       <workItem from="1617882610370" duration="1198000" />
-      <workItem from="1617970765074" duration="2620000" />
+      <workItem from="1617970765074" duration="3229000" />
     </task>
     <servers />
   </component>

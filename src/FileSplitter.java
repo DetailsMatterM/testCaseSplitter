@@ -251,7 +251,9 @@ public class FileSplitter {
 
     public static void prepareForPrint(String testName, String input, int testStartIndex, int testEndIndex, String pathToSave) {
         String substring = input.substring(testStartIndex,testEndIndex + 1);
-        if ((testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) || substring.contains("assert") || ) {
+        if ((testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) ||
+                substring.contains("assert") ||
+                input.substring(testStartIndex - 10, testStartIndex - 5).equals("@Test")) {
 
             printCharactersToFile(pathToSave, "::" + testName, substring);
             // FOR WINDOWS
