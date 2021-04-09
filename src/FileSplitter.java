@@ -251,13 +251,33 @@ public class FileSplitter {
 
     public static void prepareForPrint(String testName, String input, int testStartIndex, int testEndIndex, String pathToSave) {
         String substring = input.substring(testStartIndex,testEndIndex + 1);
+
         if ((testName.length() > 4 && testName.substring(0, 4).equalsIgnoreCase("test")) ||
                 substring.contains("assert") ||
-                input.substring(testStartIndex - 10, testStartIndex - 5).equals("@Test")) {
+                input.substring(testStartIndex - 10, testStartIndex).contains("@Test")) {
 
             printCharactersToFile(pathToSave, "::" + testName, substring);
             // FOR WINDOWS
             //printCharactersToFile(pathToSave, testName, substring);
+        } else {
+            boolean noTest = false;
+            for (int i = 1; !noTest && testStartIndex - i > 0 ; i++) {
+                Character compare = input.charAt(testStartIndex - i);
+                Character compOpen = '{';
+                Character compClosed = '}';
+                Character compAt = '@';
+                if (compare.equals(compOpen) || compare.equals(compClosed)) {
+                    noTest = true;
+                } else if (compare.equals(compAt)){
+                    if (input.substring(testStartIndex - i, (testStartIndex - i) + 5).contains("@Test")) {
+                        printCharactersToFile(pathToSave, "::" + testName, substring);
+                        // FOR WINDOWS
+                        //printCharactersToFile(pathToSave, testName, substring);
+                    } else {
+                        noTest = true;
+                    }
+                }
+            }
         }
     }
 }
